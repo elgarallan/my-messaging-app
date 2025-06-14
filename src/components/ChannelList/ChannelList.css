@@ -1,0 +1,59 @@
+.channel-list {
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.channel-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.channel-item {
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.channel-item:hover {
+  background-color: #f0f0f0;
+}
+
+.channel-item.active {
+  background-color: #dceeff;
+  font-weight: bold;
+}
+
+.empty-state {
+  font-style: italic;
+  color: #777;
+}
+
+.channel-form {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.channel-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  font-size: 0.9rem;
+}
+
+.create-channel-btn {
+  padding: 8px 12px;
+  border: none;
+  background-color: #4a90e2;
+  color: white;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.create-channel-btn:hover {
+  background-color: #357acc;
+}

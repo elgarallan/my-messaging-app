@@ -1,0 +1,80 @@
+.direct-messages {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1rem;
+  background-color: #fdfdfd;
+  border-left: 1px solid #eee;
+}
+
+.dm-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.dm-close-button {
+  font-size: 0.8rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 2px 6px;
+  color: #666;
+}
+
+.dm-close-button:hover {
+  color: #000;
+}
+
+.messages-container {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+}
+
+.message-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.message-item {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.message-user {
+  font-weight: bold;
+}
+
+.message-timestamp {
+  color: gray;
+  font-size: 0.75rem;
+}
+
+.message-body {
+  margin-top: 4px;
+  font-size: 0.95rem;
+}
+
+.message-form {
+  margin-top: auto;
+}
+
+.message-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
