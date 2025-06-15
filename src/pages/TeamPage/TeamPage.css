@@ -50,3 +50,41 @@
   border-top: 1px solid #ccc;
   overflow-y: auto;
 }
+
+/* Responsive Styles for iPhone */
+@media (max-width: 600px) {
+  .team-body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+    height: auto;
+  }
+
+  .sidebar-top,
+  .sidebar-bottom {
+    height: auto;
+    padding: 0.5rem;
+  }
+
+  .main-content {
+    flex: 1;
+  }
+
+  .main-top,
+  .main-bottom {
+    padding: 0.5rem;
+  }
+
+  .main-bottom {
+    height: auto;
+    max-height: 40vh;
+  }
+
+  .sidebar-bottom {
+    max-height: 30vh;
+  }
+}

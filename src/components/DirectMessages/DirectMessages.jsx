@@ -5,9 +5,17 @@ function DirectMessages({ selectedUser, directMessages, dmBody, setDmBody, onSen
   return (
   <div className="team-section direct-messages">
     <div className="dm-header">
-      <h3>{selectedUser.username || selectedUser.email}</h3>
+      <div className="member-info">
+        <div className="avatar">
+          {selectedUser.username?.charAt(0).toUpperCase() || selectedUser.email?.charAt(0).toUpperCase()}
+        </div>
+        <span className="member-name">
+          {selectedUser.username || selectedUser.email}
+        </span>
+      </div>
       <button className="dm-close-button" onClick={onClose}>✖ Close</button>
     </div>
+
 
     <div className="messages-container">
       {directMessages.length === 0 ? (
