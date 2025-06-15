@@ -24,7 +24,7 @@
 }
 
 .dm-close-button:hover {
-  color: #000;
+  color: white;
 }
 
 .messages-container {
@@ -112,3 +112,21 @@
   font-size: 1rem;
   font-weight: 500;
 }
+
+.message-actions button,
+.edit-section button {
+  font-size: 0.75rem;         
+  padding: 2px 6px;        
+  margin-left: 4px;
+  background: transparent;
+  border: none;
+  color: #888;
+  cursor: pointer;
+}
+
+.message-actions button:hover,
+.edit-section button:hover {
+  color: #000;
+  text-decoration: underline;
+}
+

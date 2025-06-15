@@ -11,13 +11,11 @@ import TeamPage from "./pages/TeamPage/TeamPage";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Check localStorage for token on mount
   useEffect(() => {
     const token = localStorage.getItem("jwt");
-    setIsAuthenticated(!!token); // true if token exists
+    setIsAuthenticated(!!token);
   }, []);
 
-  // Called after successful login
   const handleLogin = () => {
     setIsAuthenticated(true);
   };

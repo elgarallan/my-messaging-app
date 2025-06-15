@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./Register.css";
 
 function Register() {
-  const [username, setUsername] = useState(""); // New state
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -29,7 +29,7 @@ function Register() {
     try {
       const response = await axios.post(`${API_URL}/signup`, {
         user: {
-          username,       // Include username in the payload
+          username, 
           email,
           password,
           password_confirmation: confirmPassword

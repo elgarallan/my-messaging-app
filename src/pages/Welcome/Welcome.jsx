@@ -13,7 +13,7 @@ function Welcome({ onLogout }) {
     localStorage.removeItem("user");
 
     if (onLogout) {
-        onLogout(); // updates isAuthenticated in App
+        onLogout();
     } else {
         navigate("/login");
     }
@@ -22,10 +22,10 @@ function Welcome({ onLogout }) {
   const { headers } = useData();
   const [newTeamName, setNewTeamName] = useState("");
   const [error, setError] = useState("");
-	const [myTeams, setMyTeams] = useState([]);
-	const [availableTeams, setAvailableTeams] = useState([]);
-	const [selectedMyTeamId, setSelectedMyTeamId] = useState("");
-	const [selectedAvailableTeamId, setSelectedAvailableTeamId] = useState("");
+  const [myTeams, setMyTeams] = useState([]);
+  const [availableTeams, setAvailableTeams] = useState([]);
+  const [selectedMyTeamId, setSelectedMyTeamId] = useState("");
+  const [selectedAvailableTeamId, setSelectedAvailableTeamId] = useState("");
 
 	
 	useEffect(() => {
@@ -45,7 +45,7 @@ function Welcome({ onLogout }) {
 		const fetchAvailableTeams = async () => {
 			try {
 				const response = await axios.get(`${API_URL}/teams/available`, { headers });
-				setAvailableTeams(response.data); // assumes backend returns [{ id, name}]
+				setAvailableTeams(response.data);
 			} catch (err) {
 				console.error("Failed to load available teams", err);
 			}

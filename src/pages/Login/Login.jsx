@@ -27,30 +27,25 @@ function Login({ onLogin }) {
       const { token, user } = response.data;
 
       if (token && user) {
-        // Store the token and user globally or in localStorage
         localStorage.setItem("jwt", token);
         localStorage.setItem("user", JSON.stringify(user));
 
-        // Optional: pass token to global state/context
         handleHeaders({ Authorization: `Bearer ${token}` });
-
-        onLogin(); // Notify parent
-        navigate("/welcome"); // Redirect
-      } else {
-        setErrorMessage("Invalid response from server.");
-      }
-    } catch (error) {
-      console.error("Login error:", error);
-      setErrorMessage(
-        error.response?.data?.message || "Invalid credentials. Please try again."
-      );
-    } finally {
-      setIsLoading(false);
-    }
-    
+          onLogin();
+          navigate("/welcome");
+        } else {
+          setErrorMessage("Invalid response from server.");
+        }
+      } catch (error) {
+        console.error("Login error:", error);
+        setErrorMessage(
+          error.response?.data?.message || "Invalid credentials. Please try again."
+        );
+      } finally {
+        setIsLoading(false);
+    }  
   };
   
-
   return (
     <div className="login-container">
       <div className="login-box">

@@ -13,13 +13,14 @@ import DirectMessages from "../../components/DirectMessages/DirectMessages";
 
 function TeamPage({ onLogout }) {
   const navigate = useNavigate();
+  const currentUser = JSON.parse(localStorage.getItem("user"));
+  const currentUserId = currentUser?.id;
 
   const handleLogout = () => {
     localStorage.removeItem("jwt");
     localStorage.removeItem("user");
     localStorage.removeItem("team_id");
 
-    // Tell App to update auth state and navigate
     if (onLogout) {
       onLogout();
     } else {
@@ -173,57 +174,57 @@ function TeamPage({ onLogout }) {
   if (error) return <p style={{ color: "red" }}>{error}</p>;
 
   return (
-  <div className="team-page">
-    <TeamHeader teamName={team.name} onLogout={handleLogout} />
+    <div className="team-page">
+      <TeamHeader teamName={team.name} onLogout={handleLogout} />
 
-    <div className="team-body">
-      <aside className="sidebar">
-        <div className="sidebar-top">
-          <ChannelList
-            channels={team.channels}
-            selectedChannelId={selectedChannel?.id}
-            onSelectChannel={handleSelectChannel}
-            onCreateChannel={handleCreateChannel}
-            newChannelName={newChannelName}
-            setNewChannelName={setNewChannelName}
-          />
-        </div>
-        <div className="sidebar-bottom">
-          <MemberList members={team.members} onSelectUser={handleSelectUser} />
-        </div>
-      </aside>
-
-      <main className="main-content">
-        <div className="main-top">
-          {selectedChannel && (
-            <ChannelMessages
-              selectedChannel={selectedChannel}
-              messages={messages}
-              newMessage={newMessage}
-              setNewMessage={setNewMessage}
-              onSendMessage={handleSendMessage}
+      <div className="team-body">
+        <aside className="sidebar">
+          <div className="sidebar-top">
+            <ChannelList
+              channels={team.channels}
+              selectedChannelId={selectedChannel?.id}
+              onSelectChannel={handleSelectChannel}
+              onCreateChannel={handleCreateChannel}
+              newChannelName={newChannelName}
+              setNewChannelName={setNewChannelName}
             />
-          )}
-        </div>
+          </div>
+          <div className="sidebar-bottom">
+            <MemberList members={team.members} onSelectUser={handleSelectUser} />
+          </div>
+        </aside>
 
-        <div className="main-bottom">
-          {selectedUser && (
-            <DirectMessages
-              selectedUser={selectedUser}
-              directMessages={directMessages}
-              dmBody={dmBody}
-              setDmBody={setDmBody}
-              onSendDm={handleSendDm}
-              onClose={handleCloseDm}
-            />
-          )}
-        </div>
-      </main>
+        <main className="main-content">
+          <div className="main-top">
+            {selectedChannel && (
+              <ChannelMessages
+                selectedChannel={selectedChannel}
+                messages={messages}
+                newMessage={newMessage}
+                setNewMessage={setNewMessage}
+                onSendMessage={handleSendMessage}
+              />
+            )}
+          </div>
+
+          <div className="main-bottom">
+            {selectedUser && (
+              <DirectMessages
+                selectedUser={selectedUser}
+                directMessages={directMessages}
+                setDirectMessages={setDirectMessages}
+                dmBody={dmBody}
+                setDmBody={setDmBody}
+                onSendDm={handleSendDm}
+                onClose={handleCloseDm}
+                currentUserId={currentUserId}
+              />
+            )}
+          </div>
+        </main>
+      </div>
     </div>
-  </div>
-);
-
-
+  );
 
 }
 

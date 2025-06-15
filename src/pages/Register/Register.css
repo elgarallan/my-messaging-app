@@ -1,4 +1,3 @@
-/* Login.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -63,3 +62,28 @@ body {
     background-color: yellow;
   }
   
+  @media (max-width: 480px) {
+    .login-box {
+      padding: 20px;
+      box-shadow: none;
+      border-radius: 0;
+    }
+
+    .fa-slack {
+      font-size: 40px;
+    }
+
+    .input-field {
+      font-size: 0.95rem;
+      padding: 8px;
+    }
+
+    .login-button {
+      font-size: 0.95rem;
+      padding: 10px;
+    }
+
+    p {
+      font-size: 13px;
+    }
+}
