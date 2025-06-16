@@ -74,16 +74,25 @@ function Welcome({ onLogout }) {
     e.preventDefault();
     setError("");
     try {
-      await axios.post(
-        `${API_URL}/teams`,
-        { name: newTeamName },
-        { headers }
+      const res = await axios.post(
+      `${API_URL}/teams`,
+      { name: newTeamName },
+      { headers }
       );
-      navigate(`/teams/${newTeamName.id}`);
+
+      const teamId = res.data?.id || res.data?.team?.id;
+
+      if (teamId) {
+      localStorage.setItem("team_id", teamId);
+      navigate(`/teams/${teamId}`);
+      } else {
+      throw new Error("Team ID not returned from server.");
+      }
     } catch (err) {
       setError(err.response?.data?.message || "Unable to create team.");
     }
   };
+
 
   return (
     <div className="welcome-container">
